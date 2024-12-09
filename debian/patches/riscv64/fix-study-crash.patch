@@ -1,0 +1,22 @@
+--- a/components/variations/proto/study.proto
++++ b/components/variations/proto/study.proto
+@@ -265,6 +265,7 @@
+ 
+     // A POSIX-only value, indicating an OpenPOWER host
+     PPC64 = 5;
++    RISCV64 = 6;
+   }
+ 
+   // Enum to pass as optional bool.
+--- a/components/variations/service/variations_field_trial_creator_base.cc
++++ b/components/variations/service/variations_field_trial_creator_base.cc
+@@ -112,6 +112,9 @@
+   if (process_arch == "PPC_64") {
+     return Study::PPC64;
+   }
++  if (process_arch == "RISCV_64") {
++    return Study::RISCV64;
++  }
+   if (process_arch == "x86_64") {
+     std::string os_arch = base::SysInfo::OperatingSystemArchitecture();
+     if (base::StartsWith(os_arch, "arm",

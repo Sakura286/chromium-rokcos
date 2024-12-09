@@ -1,0 +1,54 @@
+/* Copyright 2021 The Chromium Authors
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+.https-only #main-content a {
+  color: var(--google-blue-700);
+}
+
+@media (prefers-color-scheme: dark) {
+  .https-only #main-content a {
+    color: var(--google-blue-300);
+  }
+}
+
+.https-only .icon {
+  background-image: image-set(
+    url(images/1x/triangle_red.png) 1x,
+    url(images/2x/triangle_red.png) 2x);
+  filter: grayscale(1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .https-only .icon {
+    filter: invert(1) grayscale(1);
+  }
+}
+
+/* Override the icon and colors for the August 2024 refresh */
+
+.https-only-august2024-refresh .icon {
+  background-image: url(images/no_encryption.svg);
+  filter: grayscale(1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .https-only-august2024-refresh .icon {
+    filter: invert(1) grayscale(1);
+  }
+}
+
+.https-only-august2024-refresh .secondary-button {
+  --secondary-button-fill-color: var(--google-blue-50);
+  --secondary-button-text-color: var(--google-blue-700);
+  --secondary-button-hover-fill-color: var(--google-blue-50);
+  border: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .https-only-august2024-refresh .secondary-button {
+    --secondary-button-fill-color: #3a4558; /* Blue 300 24% on Grey 900 */
+    --secondary-button-text-color: var(--google-blue-100);
+    --secondary-button-hover-fill-color: #3a4558;
+  }
+}

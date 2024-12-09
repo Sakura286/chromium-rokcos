@@ -1,0 +1,8 @@
+==============================================================
+To recreate boringssl pregenerated files patch for ppc64le:
+
+cd third_party/boringssl/src
+cp -Rp gen gen.orig
+go run ./util/pregenerate
+cd ../../../../
+diff -urN chromium-*/third_party/boringssl/src/gen.orig chromium-*/third_party/boringssl/src/gen

@@ -1,0 +1,12 @@
+--- a/build/config/clang/BUILD.gn
++++ b/build/config/clang/BUILD.gn
+@@ -184,6 +184,9 @@
+           _suffix = "-i386"
+         } else if (current_cpu == "arm64") {
+           _suffix = "-aarch64"
++        } else if (current_cpu == "riscv64") {
++          _dir = "riscv64-unknown-linux-gnu"
++          _suffix = "-riscv64"
+         } else {
+           assert(false)  # Unhandled cpu type
+         }

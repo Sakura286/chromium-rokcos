@@ -1,0 +1,29 @@
+#!special-case-list-v1
+# TODO(crbug.com/41488956): update to glob patterns
+
+#############################################################################
+# UBSan ignorelist.
+
+#############################################################################
+# V8 UBSan suppressions
+
+# Bug v8:8735: PropertyCallbackInfo<void> vs PropertyCallbackInfo<T>.
+[function]
+fun:*v8*internal*PropertyCallbackArguments*CallAccessorSetter*
+fun:*v8*internal*PropertyCallbackArguments*BasicCallNamedGetterCallback*
+fun:*v8*internal*InvokeAccessorGetterCallback*
+
+# Bug v8:8735: WeakCallbackInfo<void> vs. WeakCallbackInfo<T>.
+[function]
+fun:*v8*internal*GlobalHandles*PendingPhantomCallback*Invoke*
+fun:*v8*internal*GlobalHandles*Node*PostGarbageCollectionProcessing*
+
+#############################################################################
+# https://crbug.com/40943968
+[signed-integer-overflow]
+fun:*OT*Layout*propagate_attachment_offsets*
+
+#############################################################################
+# https://github.com/llvm/llvm-project/issues/96772
+[nonnull-attribute]
+src:*/third_party/libFuzzer/*
