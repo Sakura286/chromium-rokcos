@@ -564,10 +564,17 @@ def DownloadDebianSysroot(platform_name, skip_download=False):
       'arm': 'fe81e7114b97440262bce004caf02c1514732e2fa7f99693b2836932ad1c4626',
       # hash from https://chromium-review.googlesource.com/c/chromium/src/+/5506275/1/build/linux/sysroot_scripts/sysroots.json#21
       'arm64': '308e23faba3174bd01accfe358467b8a40fad4db4c49ef629da30219f65a275f',
+      'riscv64': 'SKIP',
   }
 
-  toolchain_name = f'debian_bullseye_{platform_name}_sysroot'
+  release = 'bullseye' if platform_name != 'riscv64' else 'sid'
+
+  toolchain_name = f'debian_{release}_{platform_name}_sysroot'
   output = os.path.join(LLVM_BUILD_TOOLS_DIR, toolchain_name)
+
+  if hashes[platform_name] == 'SKIP':
+    return output
+
   U = toolchain_bucket + hashes[platform_name]
   if not skip_download:
     DownloadAndUnpack(U, output)
@@ -860,6 +867,7 @@ def main():
     sysroot_i386 = DownloadDebianSysroot('i386', args.skip_checkout)
     sysroot_arm = DownloadDebianSysroot('arm', args.skip_checkout)
     sysroot_arm64 = DownloadDebianSysroot('arm64', args.skip_checkout)
+    sysroot_riscv64 = DownloadDebianSysroot('riscv64', args.skip_checkout)
 
     # Add the sysroot to base_cmake_args.
     if platform.machine() == 'aarch64':
@@ -1209,6 +1217,17 @@ def main():
     runtimes_triples_args['aarch64-unknown-linux-gnu'] = {
         "args": [
             'CMAKE_SYSROOT=%s' % sysroot_arm64,
+            # Can't run tests on x86 host.
+            'LLVM_INCLUDE_TESTS=OFF',
+        ],
+        "profile":
+        True,
+        "sanitizers":
+        True,
+    }
+    runtimes_triples_args['riscv64-unknown-linux-gnu'] = {
+        "args": [
+            'CMAKE_SYSROOT=%s' % sysroot_riscv64,
             # Can't run tests on x86 host.
             'LLVM_INCLUDE_TESTS=OFF',
         ],
