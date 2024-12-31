@@ -1,4 +1,11 @@
 build/linux/debian_sid_riscv64-sysroot/
 build/linux/debian_sid_riscv64-sysroot.tar.gz
 third_party/llvm-build-tools/
+buildlog.txt
+third_party/llvm-bootstrap-install/
+third_party/llvm-bootstrap/
+third_party/llvm-build/
+third_party/llvm-instrumented/
+third_party/llvm/
+tools/clang/scripts/__pycache__/
 
