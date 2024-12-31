@@ -153,6 +153,7 @@ def CopyDirectoryContents(src, dst):
 
 
 def CheckoutGitRepo(name, git_url, commit, dir):
+  return
   """Checkout the git repo at a certain git commit in dir. Any local
   modifications in dir will be lost."""
 
