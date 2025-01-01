@@ -64,8 +64,7 @@ class IncludeFinderPPCallbacks : public clang::PPCallbacks {
                           clang::OptionalFileEntryRef file,
                           llvm::StringRef search_path,
                           llvm::StringRef relative_path,
-                          const clang::Module* SuggestedModule,
-                          bool ModuleImported,
+                          const clang::Module* imported,
                           clang::SrcMgr::CharacteristicKind /*file_type*/
                           ) override;
   void EndOfMainFile() override;
@@ -164,7 +163,6 @@ void IncludeFinderPPCallbacks::InclusionDirective(
     llvm::StringRef search_path,
     llvm::StringRef relative_path,
     const clang::Module* SuggestedModule,
-    bool ModuleImported,
     clang::SrcMgr::CharacteristicKind /*file_type*/
 ) {
   if (!file)

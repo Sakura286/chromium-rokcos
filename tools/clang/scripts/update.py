@@ -40,7 +40,7 @@ CLANG_REVISION = 'llvmorg-18-init-17730-gf670112a'
 CLANG_SUB_REVISION = 5
 
 PACKAGE_VERSION = '%s-%s' % (CLANG_REVISION, CLANG_SUB_REVISION)
-RELEASE_VERSION = '20'
+RELEASE_VERSION = '18'
 
 CDS_URL = os.environ.get('CDS_CLANG_BUCKET_OVERRIDE',
     'https://commondatastorage.googleapis.com/chromium-browser-clang')

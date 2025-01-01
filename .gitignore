@@ -8,4 +8,21 @@ third_party/llvm-build/
 third_party/llvm-instrumented/
 third_party/llvm/
 tools/clang/scripts/__pycache__/
+clang-format-llvmorg-18-init-17730-gf670112a-5.tar.xz
+clang-format-llvmorg-18-init-17730-gf670112a-5/
+clang-llvmorg-18-init-17730-gf670112a-5.tar.xz
+clang-llvmorg-18-init-17730-gf670112a-5/
+clang-tidy-llvmorg-18-init-17730-gf670112a-5.tar.xz
+clang-tidy-llvmorg-18-init-17730-gf670112a-5/
+clangd-llvmorg-18-init-17730-gf670112a-5.tar.xz
+clangd-llvmorg-18-init-17730-gf670112a-5/
+libclang-llvmorg-18-init-17730-gf670112a-5.tar.xz
+libclang-llvmorg-18-init-17730-gf670112a-5/
+llvm-code-coverage-llvmorg-18-init-17730-gf670112a-5.tar.xz
+llvm-code-coverage-llvmorg-18-init-17730-gf670112a-5/
+llvmobjdump-llvmorg-18-init-17730-gf670112a-5.tar.xz
+llvmobjdump-llvmorg-18-init-17730-gf670112a-5/
+translation_unit-llvmorg-18-init-17730-gf670112a-5.tar.xz
+translation_unit-llvmorg-18-init-17730-gf670112a-5/
+
 
