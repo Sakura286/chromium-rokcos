@@ -24,5 +24,7 @@ llvmobjdump-llvmorg-18-init-17730-gf670112a-5.tar.xz
 llvmobjdump-llvmorg-18-init-17730-gf670112a-5/
 translation_unit-llvmorg-18-init-17730-gf670112a-5.tar.xz
 translation_unit-llvmorg-18-init-17730-gf670112a-5/
+third_party/rust-buildlog*.txt
+__pycache__/
 
 
