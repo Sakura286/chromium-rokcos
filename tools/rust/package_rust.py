@@ -90,9 +90,11 @@ def main():
               'w',
               encoding='utf-8') as log:
         # Build the Rust toolchain.
+        # build_cmd = [sys.executable, '-m', 'trace', '-t', '--ignore-dir="/usr/lib/python312.zip:/usr/lib/python3.12:/usr/lib/python3.12/lib-dynload:/usr/local/lib/python3.12/dist-packages:/usr/lib/python3/dist-packages:/home/infinity/chromium/tools/clang/scripts"', os.path.join(THIS_DIR, 'build_rust.py')]
         build_cmd = [sys.executable, os.path.join(THIS_DIR, 'build_rust.py')]
         if args.build_mac_arm:
             build_cmd.append('--build-mac-arm')
+        # build_cmd.append('--dump-env')
         TeeCmd(build_cmd, log)
 
         # Build bindgen.

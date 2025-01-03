@@ -613,6 +613,7 @@ def GitApplyCherryPicks():
     # with `GitMoveSubmoduleBranch()`.
     #############################
 
+
     # TODO: Remove once
     # https://github.com/rust-lang/rust/pull/119185 has been merged.
     GitCherryPick(RUST_SRC_DIR, 'https://github.com/rust-lang/rust.git',
@@ -621,8 +622,8 @@ def GitApplyCherryPicks():
     # TODO(crbug.com/350341587): Remove once
     # https://github.com/rust-lang/rust/pull/127025 or a similar fix has been
     # merged.
-    GitCherryPick(RUST_SRC_DIR, 'https://github.com/rust-lang/rust.git',
-                  '56d589b5bea75d08d21d7d6efb34e8527aec7635')
+    # GitCherryPick(RUST_SRC_DIR, 'https://github.com/rust-lang/rust.git',
+    #              '56d589b5bea75d08d21d7d6efb34e8527aec7635')
 
     # TODO(https://crbug.com/357125724): Remove once compiler_builtins is fixed
     RunCommand([
