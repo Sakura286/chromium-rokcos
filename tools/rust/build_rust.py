@@ -626,16 +626,16 @@ def GitApplyCherryPicks():
     #              '56d589b5bea75d08d21d7d6efb34e8527aec7635')
 
     # TODO(https://crbug.com/357125724): Remove once compiler_builtins is fixed
-    RunCommand([
-        'git',
-        '-C',
-        RUST_SRC_DIR,
-        'revert',
-        '--no-edit',
-        '-m',
-        '1',
-        '80d8270d8488957f62fbf0df7a19dfe596be92ac',
-    ])
+    #RunCommand([
+    #    'git',
+    #    '-C',
+    #    RUST_SRC_DIR,
+    #    'revert',
+    #    '--no-edit',
+    #    '-m',
+    #    '1',
+    #    '80d8270d8488957f62fbf0df7a19dfe596be92ac',
+    #])
 
     print('Finished applying cherry-picks.')
 
