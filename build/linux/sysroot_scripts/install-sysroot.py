@@ -36,7 +36,7 @@ from urllib.request import urlopen
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SRC_DIR = os.path.dirname(os.path.dirname(os.path.dirname(SCRIPT_DIR)))
 
-VALID_ARCHS = ("amd64", "i386", "armhf", "arm64", "mipsel", "mips64el")
+VALID_ARCHS = ("amd64", "i386", "armhf", "arm64", "mipsel", "mips64el", "riscv64")
 
 ARCH_TRANSLATIONS = {
     "x64": "amd64",
@@ -89,14 +89,16 @@ def main(args):
         sysroots_json_path = DEFAULT_SYSROOTS_PATH
 
     if options.arch:
+        target_platform = 'sid' if options.arch == 'riscv64' else DEFAULT_TARGET_PLATFORM
         InstallSysroot(
             sysroots_json_path,
-            DEFAULT_TARGET_PLATFORM,
+            target_platform,
             ARCH_TRANSLATIONS.get(options.arch, options.arch),
         )
     elif options.all:
         for arch in VALID_ARCHS:
-            InstallSysroot(sysroots_json_path, DEFAULT_TARGET_PLATFORM, arch)
+            target_platform = 'sid' if arch == 'riscv64' else DEFAULT_TARGET_PLATFORM
+            InstallSysroot(sysroots_json_path, target_platform, arch)
     else:
         print("You much specify one of the options.")
         return 1
