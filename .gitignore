@@ -1,5 +1,6 @@
 build/linux/debian_sid_riscv64-sysroot/
 build/linux/debian_sid_riscv64-sysroot.tar.gz
+build/linux/debian_bullseye_armhf-sysroot/
 third_party/llvm-build-tools/
 buildlog.txt
 third_party/llvm-bootstrap-install/
@@ -31,5 +32,5 @@ third_party/rust-src/
 third_party/rust-toolchain-cd6d8f2a04528f827ad3d399581c0f3502b15a72-1-llvmorg-18-init-17730-gf670112a.tar.xz
 third_party/rust-toolchain-intermediate/
 third_party/rust-toolchain
-
+out/
 
