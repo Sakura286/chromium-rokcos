@@ -33,4 +33,7 @@ third_party/rust-toolchain-cd6d8f2a04528f827ad3d399581c0f3502b15a72-1-llvmorg-18
 third_party/rust-toolchain-intermediate/
 third_party/rust-toolchain
 out/
-
+*.log
+*.log
+build/linux/debian_bookworm_amd64-sysroot/
+build/linux/debian_bullseye_amd64-sysroot

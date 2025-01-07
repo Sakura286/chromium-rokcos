@@ -38,7 +38,7 @@ if (sysroot == "") {
     # By default build against a sysroot image downloaded from Cloud Storage
     # during gclient runhooks.
     if (current_cpu == "x64") {
-      sysroot = "$target_sysroot_dir/debian_bullseye_amd64-sysroot"
+      sysroot = "$target_sysroot_dir/debian_bookworm_amd64-sysroot"
     } else if (current_cpu == "x86") {
       sysroot = "$target_sysroot_dir/debian_bullseye_i386-sysroot"
     } else if (current_cpu == "mipsel") {

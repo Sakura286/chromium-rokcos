@@ -15,7 +15,7 @@ clang_use_chrome_plugins=false
 clang_version="18"
 use_thin_lto=true
 is_debug=false
-use_custom_libcxx=true
+use_custom_libcxx=false
 use_unofficial_version_number=false
 safe_browsing_use_unrar=false
 enable_vr=false
@@ -50,4 +50,14 @@ use_system_libopenjpeg2=true
 proprietary_codecs=true
 ffmpeg_branding="Chrome"
 disable_fieldtrial_testing_config=true
+
+enable_linux_installer=false
 '
+#ozone_platform_wayland=false
+#
+#rust_sysroot_absolute="//third_party/rust-toolchain"
+#rust_bindgen_root="//third_party/rust-toolchain"
+#rustc_version="rustc 1.77.0-dev (cd6d8f2a04528f827ad3d399581c0f3502b15a72-1-llvmorg-18-init-17730-gf670112a chromium)"
+#clang_base_path="//third_party/llvm-build/Release+Asserts"
+#clang_version="18"
+#'
