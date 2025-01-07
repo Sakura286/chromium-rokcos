@@ -374,7 +374,7 @@ config("compiler") {
     }
 
     if (use_lld) {
-      ldflags += [ "-fuse-ld=lld-18" ]
+      ldflags += [ "-fuse-ld=lld" ]
       if (lld_path != "") {
         ldflags += [ "-B$lld_path" ]
       }
