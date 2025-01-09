@@ -95,6 +95,7 @@ def main():
         if args.build_mac_arm:
             build_cmd.append('--build-mac-arm')
         # build_cmd.append('--dump-env')
+        build_cmd.append('--skip-llvm-build')
         TeeCmd(build_cmd, log)
 
         # Build bindgen.

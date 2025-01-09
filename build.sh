@@ -13,7 +13,6 @@ symbol_level=1
 clang_use_chrome_plugins=false
 
 clang_version="18"
-use_thin_lto=true
 is_debug=false
 use_custom_libcxx=false
 use_unofficial_version_number=false
@@ -53,6 +52,7 @@ disable_fieldtrial_testing_config=true
 
 enable_linux_installer=false
 '
+#use_thin_lto=true
 #ozone_platform_wayland=false
 #
 #rust_sysroot_absolute="//third_party/rust-toolchain"
