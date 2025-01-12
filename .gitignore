@@ -1,6 +1,5 @@
 build/linux/debian_sid_riscv64-sysroot/
-build/linux/debian_sid_riscv64-sysroot.tar.gz
-build/linux/debian_sid_riscv64-sysroot-0108.tar.gz
+build/linux/debian_sid_riscv64-sysroot*.tar.gz
 build/linux/debian_bullseye_armhf-sysroot/
 third_party/llvm-build-tools/
 buildlog.txt
