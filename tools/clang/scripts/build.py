@@ -763,6 +763,9 @@ def main():
   WriteStampFile('', STAMP_FILE)
   WriteStampFile('', FORCE_HEAD_REVISION_FILE)
 
+  # Sakura286: use local patch
+  RunCommand(['git', 'apply', '../../../llvm-diag.patch'])
+
   if not args.use_system_cmake:
     AddCMakeToPath()
 

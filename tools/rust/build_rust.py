@@ -774,6 +774,9 @@ def main():
         # changes that move submodules.
         GitApplyCherryPicks()
 
+        # Sakura286: add local patch
+        RunCommand(['git', 'apply', '../../../rust-1-abi.patch'])
+
         # TODO(crbug.com/356618943): Workaround for https://github.com/rust-lang/cargo/issues/14253
         bootstrap_cargo = os.path.join(RUST_SRC_DIR, 'src', 'bootstrap',
                                        'Cargo.toml')
