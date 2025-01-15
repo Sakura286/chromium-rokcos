@@ -619,7 +619,7 @@ GitApplyEnternalLLVMPatch_EswinBuild():
     print('Applying patches of LLVM for Eswin Build...')
 
     os.chdir(LLVM_DIR)
-    RunCommand(['git', 'apply', '../../../llvm-1-diag.patch'])
+    RunCommand(['git', 'apply', '../../../eswin-scripts/llvm-01-diag.patch'])
     os.chdir(CHROMIUM_DIR)
 
     print('Finished applying patches of LLVM for Eswin Build...')

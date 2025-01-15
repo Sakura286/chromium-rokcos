@@ -644,7 +644,7 @@ def GitApplyEnternalRustPatch_EswinBuild():
 
     os.chdir(RUST_SRC_DIR)
 
-    RunCommand(['git', 'apply', '../../../rust-1-abi.patch'])
+    RunCommand(['git', 'apply', '../../../eswin-scripts/rust-01-abi.patch'])
 
     os.chdir(CHROMIUM_DIR)
     print('Finished applying patches of Rust for Eswin Build.')
