@@ -827,7 +827,7 @@ def find_missing_packages(options):
   packages_str = " ".join(packages)
   print("Packages required: " + packages_str, file=sys.stderr)
 
-  query_cmd = ["apt-get", "--just-print", "install"] + packages
+  query_cmd = ["apt-get", "--just-print", "install", "-y"] + packages
   env = os.environ.copy()
   env["LANGUAGE"] = "en"
   env["LANG"] = "C"
@@ -852,7 +852,7 @@ def install_packages(options):
     packages = find_missing_packages(options)
     if packages:
       quiet = ["-qq", "--assume-yes"] if options.no_prompt else []
-      subprocess.check_output(["sudo", "apt-get", "install"] + quiet + packages)
+      subprocess.check_output(["sudo", "apt-get", "install", "-y"] + quiet + packages)
       print(file=sys.stderr)
     else:
       print("No missing packages, and the packages are up to date.",

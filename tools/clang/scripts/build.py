@@ -615,7 +615,7 @@ def gn_arg(v):
   raise argparse.ArgumentTypeError('Expected one of %r or %r' % (
       'True', 'False'))
 
-GitApplyEnternalLLVMPatch_EswinBuild():
+def GitApplyEnternalLLVMPatch_EswinBuild():
     print('Applying patches of LLVM for Eswin Build...')
 
     os.chdir(LLVM_DIR)

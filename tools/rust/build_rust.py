@@ -642,11 +642,15 @@ def GitApplyCherryPicks():
 def GitApplyEnternalRustPatch_EswinBuild():
     print('Applyiing patches of Rust for Eswin Build...')
 
-    os.chdir(RUST_SRC_DIR)
+    #os.chdir(RUST_SRC_DIR)
+    
+    patch_path = os.path.join(CHROMIUM_DIR, '..', 'eswin-scripts', 'rust-01-abi.patch')
+    if os.path.isfile(patch_path):
+        RunCommand(['git', '-C', RUST_SRC_DIR, 'apply', patch_path])
+    else:
+        print(patch_path + ' does not exist.')
 
-    RunCommand(['git', 'apply', '../../../eswin-scripts/rust-01-abi.patch'])
-
-    os.chdir(CHROMIUM_DIR)
+    #os.chdir(CHROMIUM_DIR)
     print('Finished applying patches of Rust for Eswin Build.')
 
 
