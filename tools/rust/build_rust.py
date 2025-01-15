@@ -639,6 +639,16 @@ def GitApplyCherryPicks():
 
     print('Finished applying cherry-picks.')
 
+def GitApplyEnternalRustPatch_EswinBuild():
+    print('Applyiing patches of Rust for Eswin Build...')
+
+    os.chdir(RUST_SRC_DIR)
+
+    RunCommand(['git', 'apply', '../../../rust-1-abi.patch'])
+
+    os.chdir(CHROMIUM_DIR)
+    print('Finished applying patches of Rust for Eswin Build.')
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -775,7 +785,7 @@ def main():
         GitApplyCherryPicks()
 
         # Sakura286: add local patch
-        RunCommand(['git', 'apply', '../../../rust-1-abi.patch'])
+        GitApplyEnternalRustPatch_EswinBuild()
 
         # TODO(crbug.com/356618943): Workaround for https://github.com/rust-lang/cargo/issues/14253
         bootstrap_cargo = os.path.join(RUST_SRC_DIR, 'src', 'bootstrap',

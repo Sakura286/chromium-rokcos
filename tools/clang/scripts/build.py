@@ -615,6 +615,14 @@ def gn_arg(v):
   raise argparse.ArgumentTypeError('Expected one of %r or %r' % (
       'True', 'False'))
 
+GitApplyEnternalLLVMPatch_EswinBuild():
+    print('Applying patches of LLVM for Eswin Build...')
+
+    os.chdir(LLVM_DIR)
+    RunCommand(['git', 'apply', '../../../llvm-1-diag.patch'])
+    os.chdir(CHROMIUM_DIR)
+
+    print('Finished applying patches of LLVM for Eswin Build...')
 
 def main():
   parser = argparse.ArgumentParser(description='Build Clang.')
@@ -764,7 +772,7 @@ def main():
   WriteStampFile('', FORCE_HEAD_REVISION_FILE)
 
   # Sakura286: use local patch
-  RunCommand(['git', 'apply', '../../../llvm-diag.patch'])
+  GitApplyEnternalLLVMPatch_EswinBuild()
 
   if not args.use_system_cmake:
     AddCMakeToPath()
