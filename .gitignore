@@ -39,3 +39,6 @@ build/linux/debian_bookworm_amd64-sysroot/
 build/linux/debian_bullseye_amd64-sysroot/
 third_party/node/linux/
 third_party/node/node_modules/rollup/
+chromium-dist.tar.zst
+chromium-dist/
+package.sh
