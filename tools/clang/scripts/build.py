@@ -175,10 +175,12 @@ def CheckoutGitRepo(name, git_url, commit, dir):
     print('Removing %s.' % dir)
     RmTree(dir)
 
-  clone_cmd = ['git', 'clone', git_url, dir]
+  clone_cmd = ['git', 'clone', '--depth=1', git_url, dir]
 
   if RunCommand(clone_cmd, fail_hard=False):
     os.chdir(dir)
+    for i in range(0,10):
+        RunCommand(['git', 'fetch', '--unshallow'], fail_hard=False)
     if RunCommand(['git', 'checkout', commit], fail_hard=False):
       return
 
