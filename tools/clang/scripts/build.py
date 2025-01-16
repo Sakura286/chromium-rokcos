@@ -185,7 +185,7 @@ def CheckoutGitRepo(name, git_url, commit, dir):
   print('CheckoutGitRepo failed.')
   sys.exit(1)
 
-def CheckoutLLVMRepo(name, git_url, commit, dir)
+def CheckoutLLVMRepo(name, git_url, commit, dir):
   """Checkout the git repo at a certain git commit in dir. Any local
   modifications in dir will be lost."""
   print('!!!!!! In checkout git repo')
