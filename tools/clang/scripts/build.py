@@ -217,7 +217,7 @@ def CheckoutLLVMRepo(name, git_url, commit, dir):
 
     depth=100
     while not RunCommand(['git', 'show', '--oneline', '--stat', commit], fail_hard=False):
-      RunCommand(['git', 'fetch', '--depth=' + depth], fail_hard=False)
+      RunCommand(['git', 'fetch', '--depth=' + str(depth)], fail_hard=False)
       depth = depth + 100
       if depth >= 3000:
         print('Checkout LLVM Repo failed. Checked in depth ' + depth)
