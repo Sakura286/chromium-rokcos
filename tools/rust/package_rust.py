@@ -94,7 +94,6 @@ def main():
         build_cmd = [sys.executable, os.path.join(THIS_DIR, 'build_rust.py')]
         if args.build_mac_arm:
             build_cmd.append('--build-mac-arm')
-        build_cmd.append('--skip-llvm-build')
         TeeCmd(build_cmd, log)
 
         # Build bindgen.

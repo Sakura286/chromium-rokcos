@@ -802,7 +802,7 @@ def main():
     checkout_revision = CLANG_REVISION
 
   if not args.skip_checkout:
-    CheckoutLLVMRepo('LLVM monorepo', LLVM_GIT_URL, checkout_revision, LLVM_DIR)
+    CheckoutGitRepo('LLVM monorepo', LLVM_GIT_URL, checkout_revision, LLVM_DIR)
 
   if args.llvm_force_head_revision:
     CLANG_REVISION = GetCommitDescription(checkout_revision)
