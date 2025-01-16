@@ -185,6 +185,47 @@ def CheckoutGitRepo(name, git_url, commit, dir):
   print('CheckoutGitRepo failed.')
   sys.exit(1)
 
+def CheckoutLLVMRepo(name, git_url, commit, dir)
+  """Checkout the git repo at a certain git commit in dir. Any local
+  modifications in dir will be lost."""
+  print('!!!!!! In checkout git repo')
+  print(f'Checking out {name} {commit} into {dir}')
+
+  branch = 'upstream/llvmorg-18.1.0-rc1'
+
+  # Try updating the current repo if it exists and has no local diff.
+  if os.path.isdir(dir):
+    os.chdir(dir)
+    # git diff-index --exit-code returns 0 when there is no diff.
+    # Also check that the first commit is reachable.
+    if (RunCommand(['git', 'diff-index', '--exit-code', 'HEAD'],
+                   fail_hard=False)
+        and RunCommand(['git', 'fetch'], fail_hard=False)
+        and RunCommand(['git', 'checkout', commit], fail_hard=False)
+        and RunCommand(['git', 'clean', '-f'], fail_hard=False)):
+      return
+
+    # If we can't use the current repo, delete it.
+    os.chdir(CHROMIUM_DIR)  # Can't remove dir if we're in it.
+    print('Removing %s.' % dir)
+    RmTree(dir)
+
+  clone_cmd = ['git', 'clone', '--depth=1', '--branch=' + branch, git_url, dir]
+
+  if RunCommand(clone_cmd, fail_hard=False):
+    os.chdir(dir)
+
+    depth=100
+    while not RunCommand(['git', 'show', '--oneline', '--stat', commit], fail_hard=False):
+      RunCommand(['git', 'fetch', '--depth=' + depth], fail_hard=False)
+      depth = depth + 100
+      if depth >= 3000:
+        print('Checkout LLVM Repo failed. Checked in depth ' + depth)
+        sys.exit(1)
+    return
+
+  print('Checkout LLVM Repo failed.')
+  sys.exit(1)
 
 def GetLatestLLVMCommit():
   """Get the latest commit hash in the LLVM monorepo."""
@@ -761,7 +802,7 @@ def main():
     checkout_revision = CLANG_REVISION
 
   if not args.skip_checkout:
-    CheckoutGitRepo('LLVM monorepo', LLVM_GIT_URL, checkout_revision, LLVM_DIR)
+    CheckoutLLVMRepo('LLVM monorepo', LLVM_GIT_URL, checkout_revision, LLVM_DIR)
 
   if args.llvm_force_head_revision:
     CLANG_REVISION = GetCommitDescription(checkout_revision)
