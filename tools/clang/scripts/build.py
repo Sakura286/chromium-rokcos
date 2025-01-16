@@ -663,6 +663,8 @@ def GitApplyEnternalLLVMPatch_EswinBuild():
 
     os.chdir(LLVM_DIR)
     RunCommand(['git', 'apply', '../../../eswin-scripts/llvm-01-diag.patch'])
+    RunCommand(['git', 'add', '.'])
+    RunCommand(['git', 'commit', '-m', 'Adapt llvm-18 to support chromium clang plugin'])
     os.chdir(CHROMIUM_DIR)
 
     print('Finished applying patches of LLVM for Eswin Build...')
